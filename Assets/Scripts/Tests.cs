@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Tests : MonoBehaviour
 {
+    public Inventory inventory;
+
     private void Start()
     {
-        TestCreateItem();
+        TestInv();
     }
 
     private void TestCreateItem()
@@ -42,5 +44,44 @@ public class Tests : MonoBehaviour
         }
 
         Debug.Log(defaultInfo + extraInfo);
+    }
+
+    private void TestInv()
+    {
+        Debug.Log("INV SHIT HERE YEEET");
+        AccessItem i = new AccessItem("Key for dwum", 10, 1);
+        AccessItem ai = new AccessItem("Key for aiaiai", 20, 3);
+        BonusItem j = new BonusItem("Potatoe", 65, 100);
+        BonusItem bj = new BonusItem("Pota2", 10, 100);
+
+        //Adding
+        if (inventory.AddItem(i))
+        {
+            Debug.Log("Added " + i.GetName() + " To the inventory");
+        }
+
+        if (inventory.AddItem(ai))
+        {
+            Debug.Log("Added " + ai.GetName() + " To the inventory");
+        }
+
+        if (inventory.AddItem(j))
+        {
+            Debug.Log("Added " + j.GetName() + " To the inventory");
+        }
+
+        if (inventory.AddItem(bj))
+        {
+            Debug.Log("Added " + bj.GetName() + " To the inventory");
+        }
+
+        inventory.DebugInv();
+
+        if (inventory.CanOpenDoor(1)) Debug.Log("Can open door 1");
+        else Debug.Log("Can't open door 1");
+
+        if (inventory.CanOpenDoor(2)) Debug.Log("Can open door 2");
+        else Debug.Log("Can't open door 2");
+
     }
 }
