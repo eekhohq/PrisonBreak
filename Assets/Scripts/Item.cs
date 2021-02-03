@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item
+public abstract class Item
 {
-    //private float val = Mathf.Cos(1) * 50 + 50;
-
     //Properties
     private string name;
     private float weight;
@@ -15,15 +13,7 @@ public class Item
     {
         this.name = name;
         this.weight = weight;
-        Debug.Log("ITEM CREATED: " + name + " // " + weight + "KG");
     }
-
-    /*//Polymorphishm!!!! Means multiple functions by the same name.
-    public Item(float weight)
-    {
-        this.name = "Unnamed";
-        this.weight = weight;
-    }*/
 
     //Methods
     public string GetName()
