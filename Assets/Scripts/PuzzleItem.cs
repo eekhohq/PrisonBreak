@@ -27,7 +27,7 @@ public class PuzzleItem : Item
 
     public bool IsSolved(string pAnswer = null)
     {
-        if(answer.ToLower() == pAnswer.ToLower())
+        if(!solved && answer.ToLower() == pAnswer.ToLower())
         {
             solved = true;
         }
