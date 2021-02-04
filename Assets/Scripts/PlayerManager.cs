@@ -20,10 +20,15 @@ public class PlayerManager : MonoBehaviour
 
     public void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.gameObject.CompareTag("Interactable"))
+        if (hit.gameObject.CompareTag("Interactable"))
         {
             IInteractable i = hit.gameObject.GetComponent<IInteractable>();
             i.Action(this);
         }
+    }
+
+    public bool CanIOpenDoor(int doorId)
+    {
+        return inventory.CanOpenDoor(doorId);
     }
 }
