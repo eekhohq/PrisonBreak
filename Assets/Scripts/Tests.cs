@@ -48,6 +48,7 @@ public class Tests : MonoBehaviour
 
     private void TestInv()
     {
+        //Creating the items
         Debug.Log("INV SHIT HERE YEEET");
         AccessItem i = new AccessItem("Key for dwum", 10, 1);
         AccessItem ai = new AccessItem("Key for aiaiai", 20, 3);
@@ -77,11 +78,21 @@ public class Tests : MonoBehaviour
 
         inventory.DebugInv();
 
+        //Can open door
         if (inventory.CanOpenDoor(1)) Debug.Log("Can open door 1");
         else Debug.Log("Can't open door 1");
 
         if (inventory.CanOpenDoor(2)) Debug.Log("Can open door 2");
         else Debug.Log("Can't open door 2");
 
+        //Has and Remove
+        if (inventory.HasItem(i)) Debug.Log("Has item " + i.GetName());
+        else Debug.Log("Doesn't have " + i.GetName());
+
+        if (inventory.RemoveItem(i)) Debug.Log("Removed item");
+        else Debug.Log("Couldn't remove item");
+
+        if (inventory.HasItem(i)) Debug.Log("Has item " + i.GetName());
+        else Debug.Log("Doesn't have " + i.GetName());
     }
 }
