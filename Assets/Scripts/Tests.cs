@@ -8,7 +8,7 @@ public class Tests : MonoBehaviour
 
     private void Start()
     {
-        TestInv();
+        TestPuzzle();
     }
 
     private void TestCreateItem()
@@ -94,5 +94,22 @@ public class Tests : MonoBehaviour
 
         if (inventory.HasItem(i)) Debug.Log("Has item " + i.GetName());
         else Debug.Log("Doesn't have " + i.GetName());
+    }
+
+    private void TestPuzzle()
+    {
+        string answer1 = "boega";
+        string answer2 = "fut";
+
+        PuzzleItem puz1 = new PuzzleItem("Jeffrey", 10, "OeGa", "bOeGa");
+        PuzzleItem puz2 = new PuzzleItem("Henk", 12, "Me", "faT");
+
+        Debug.Log("R: " + puz1.GetRiddle() + "\n    A: " + puz1.GetAnswer());
+        if (puz1.IsSolved(answer1)) Debug.Log("Is solved puz1");
+        else Debug.Log("Answer 1: <" + answer1 + "> Was incorrect");
+
+        Debug.Log("R: " + puz2.GetRiddle() + "\n    A: " + puz2.GetAnswer());
+        if (puz2.IsSolved(answer2)) Debug.Log("Is solved puz2");
+        else Debug.Log("Answer 2: <" + answer2 + "> Was incorrect");
     }
 }
