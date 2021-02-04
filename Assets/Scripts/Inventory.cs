@@ -8,17 +8,6 @@ public class Inventory : MonoBehaviour
     private float weight = 0;
     public float maxWeight = 100;
 
-    void Start()
-    {
-
-    }
-
-
-    void Update()
-    {
-
-    }
-
     public bool AddItem(Item i)
     {
         if (weight + i.GetWeight() <= maxWeight)
@@ -76,5 +65,18 @@ public class Inventory : MonoBehaviour
     {
         Debug.Log("Inventory has " + items.Count + " items");
         Debug.Log("Total weight: " + weight + "KG");
+    }
+
+    public void DebugItem(Item i)
+    {
+        /*switch (i)
+        {
+            case AccessItem:
+                break;
+            default:
+                break;
+        }
+        if(i == AccessItem) { 
+        }*/
     }
 }
