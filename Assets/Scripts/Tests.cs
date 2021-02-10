@@ -8,6 +8,8 @@ public class Tests : MonoBehaviour
 
     private void Start()
     {
+        inventory = new Inventory(150);
+        TestInv();
         TestPuzzle();
     }
 
