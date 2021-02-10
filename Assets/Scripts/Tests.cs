@@ -78,7 +78,7 @@ public class Tests : MonoBehaviour
             Debug.Log("Added " + bj.GetName() + " To the inventory");
         }
 
-        inventory.DebugInv();
+        //inventory.DebugInv();
 
         //Can open door
         if (inventory.CanOpenDoor(1)) Debug.Log("Can open door 1");

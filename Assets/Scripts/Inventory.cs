@@ -85,6 +85,37 @@ public class Inventory
         return weight;
     }
 
+    public Item GetLastItem()
+    {
+        return items[items.Count - 1];
+    }
+
+    public bool DropLastItem()
+    {
+        return RemoveItem(items[items.Count - 1]);
+    }
+
+    /*public bool DropItem(Item i)
+    {
+        bool succes = false;
+        if (RemoveItem(i) && succes) return true;
+        return false;
+    }
+
+    public bool DropItems()
+    {
+        foreach (Item item in items)
+        {
+            if (DropItem(item)) RemoveItem(item);
+        }
+
+        if (items.Count == 0)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void DebugInv()
     {
         Debug.Log("Inventory has " + items.Count + " items");
@@ -93,7 +124,7 @@ public class Inventory
 
     public void DebugItem(Item i)
     {
-        /*switch (i)
+        switch (i)
         {
             case AccessItem:
                 break;
@@ -101,6 +132,6 @@ public class Inventory
                 break;
         }
         if(i == AccessItem) { 
-        }*/
-    }
+        }
+    }*/
 }
