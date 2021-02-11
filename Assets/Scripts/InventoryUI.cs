@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
@@ -32,7 +33,7 @@ public class InventoryUI : MonoBehaviour
     {
         GameObject instant = Instantiate(buttonPref, new Vector3(0, 0, 0), Quaternion.identity);
         instant.transform.SetParent(invPanel.transform);
-        //instant.GetComponentInChildren<Text>().text = "no";
+        instant.GetComponentInChildren<Text>().text = i.GetName();
     }
 
     private void RemoveButton(Item i)

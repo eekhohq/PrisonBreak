@@ -75,6 +75,16 @@ public class Inventory
 
         return result;
     }
+
+    public Item GetItemWithName(string name)
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].GetName() == name) return items[i];
+        }
+        return null;
+    }
+
     public int Count()
     {
         return items.Count;
@@ -90,12 +100,12 @@ public class Inventory
         return items[items.Count - 1];
     }
 
-    public bool DropLastItem()
+    /*public bool DropLastItem()
     {
         return RemoveItem(items[items.Count - 1]);
     }
 
-    /*public bool DropItem(Item i)
+    public bool DropItem(Item i)
     {
         bool succes = false;
         if (RemoveItem(i) && succes) return true;
