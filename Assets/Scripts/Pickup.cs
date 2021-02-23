@@ -15,7 +15,10 @@ public abstract class Pickup : MonoBehaviour, IInteractable
 
     public void Action(PlayerManager player)
     {
-        if (player.AddItem(CreateItem())) Remove();
+        if (player.AddItem(CreateItem()))
+        {
+            Remove();
+        }
     }
 
     public void Remove()

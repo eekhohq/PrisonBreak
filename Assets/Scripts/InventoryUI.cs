@@ -9,6 +9,8 @@ public class InventoryUI : MonoBehaviour
     public GameObject buttonPref;
     public GameObject invPanel;
 
+    private Dictionary<Item, GameObject> buttonDict;
+
     void Start()
     {
 
@@ -21,23 +23,15 @@ public class InventoryUI : MonoBehaviour
 
     public void AddUI(Item i)
     {
-        CreateButton(i);
+        GameObject instant = Instantiate(buttonPref, new Vector3(0, 0, 0), Quaternion.identity);
+        instant.transform.SetParent(invPanel.transform);
+        instant.GetComponentInChildren<Text>().text = i.GetName();
+        buttonDict.Add(i, instant);
     }
 
     public void RemoveUI(Item i)
     {
-        RemoveButton(i);
-    }
-
-    private void CreateButton(Item i)
-    {
-        GameObject instant = Instantiate(buttonPref, new Vector3(0, 0, 0), Quaternion.identity);
-        instant.transform.SetParent(invPanel.transform);
-        instant.GetComponentInChildren<Text>().text = i.GetName();
-    }
-
-    private void RemoveButton(Item i)
-    {
-
+        Destroy(buttonDict[i]);
+        buttonDict.Remove(i);
     }
 }

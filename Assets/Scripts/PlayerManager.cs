@@ -9,21 +9,25 @@ public class PlayerManager : MonoBehaviour
     public GameObject accessPref;
     public GameObject bonusPref;
     public GameObject InventoryUI;
+    public Transform playerCam;
 
     void Start()
     {
         inventory = new Inventory(initialMaxWeight);
+        playerCam = this.gameObject.transform.GetChild(0);
         //InventoryUI.GetComponent<InventoryUI>();
     }
 
 
     private void Update()
     {
+        
+        Debug.DrawRay(playerCam.transform.position, playerCam.transform.forward * 4, Color.red);
         if (Input.GetKeyDown(KeyCode.E))
         {
             RaycastHit hit;
-
-            if (Physics.SphereCast(transform.position, 0.5f, transform.forward, out hit, 4))
+            
+            if (Physics.SphereCast(playerCam.transform.position, 0.5f, playerCam.transform.forward, out hit, 4))
             {
                 //Debug.Log("Hit something");
                 IInteractable i = hit.collider.gameObject.GetComponent<IInteractable>();
@@ -37,7 +41,7 @@ public class PlayerManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            DropItem("EA1");
+            DropItem(inventory.GetLastItem().GetName());
         }
     }
 
