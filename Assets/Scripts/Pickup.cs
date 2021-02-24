@@ -6,6 +6,7 @@ public abstract class Pickup : MonoBehaviour, IInteractable
 {
     public string itemName;
     public float weight;
+    public Sprite itemSprite;
 
     private void Start()
     {

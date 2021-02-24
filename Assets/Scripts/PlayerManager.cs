@@ -78,10 +78,12 @@ public class PlayerManager : MonoBehaviour
     public bool AddItem(Item i)
     {
         Debug.Log("Added item " + i.GetName());
-        invUI.AddUI(i);
-        Debug.Log("it no no work in the line before this debug L");
-
-        return inventory.AddItem(i);
+        if (inventory.AddItem(i))
+        {
+            invUI.AddUI(i);
+            return true;
+        }
+        return false;
     }
 
     public bool CanIOpenDoor(int doorId)
