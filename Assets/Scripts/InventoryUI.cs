@@ -36,4 +36,9 @@ public class InventoryUI : MonoBehaviour
         Destroy(buttonDict[i]);
         buttonDict.Remove(i);
     }
+
+    public void SelectItem(GameObject button)
+    {
+        Debug.Log(buttonDict.ContainsValue(button));
+    }
 }

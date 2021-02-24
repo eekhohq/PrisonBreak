@@ -23,12 +23,12 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        
+
         Debug.DrawRay(playerCam.transform.position, playerCam.transform.forward * 4, Color.red);
         if (Input.GetKeyDown(KeyCode.E))
         {
             RaycastHit hit;
-            
+
             if (Physics.SphereCast(playerCam.transform.position, 0.5f, playerCam.transform.forward, out hit, 4))
             {
                 //Debug.Log("Hit something");
@@ -44,6 +44,23 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             DropItem(inventory.GetLastItem().GetName());
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            //Component canvas = invUI.GetComponent<Canvas>().enabled = false;
+            if (Cursor.lockState == CursorLockMode.Locked)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                invUI.GetComponent<Canvas>().enabled = true;
+                playerCam.gameObject.GetComponent<CameraMovement>().enabled = false;
+            }
+            else if (Cursor.lockState == CursorLockMode.None)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                invUI.GetComponent<Canvas>().enabled = false;
+                playerCam.gameObject.GetComponent<CameraMovement>().enabled = true;
+            }
         }
     }
 
