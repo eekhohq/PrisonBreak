@@ -1676,8 +1676,10 @@ MonoBehaviour:
   initialMaxWeight: 150
   accessPref: {fileID: 742726433563671686, guid: 7a2e269802dbe724eb474404c74c289a, type: 3}
   bonusPref: {fileID: 2255730578615519920, guid: bdf3ddb0833bb4148832efeb39436a21, type: 3}
-  InventoryUI: {fileID: 0}
+  InventoryUI: {fileID: 1745355153}
   playerCam: {fileID: 0}
+  mainCanvas: {fileID: 1745355153}
+  invUI: {fileID: 0}
 --- !u!1 &1050789764
 GameObject:
   m_ObjectHideFlags: 0
@@ -2705,7 +2707,7 @@ GameObject:
   - component: {fileID: 1745355154}
   - component: {fileID: 1745355158}
   m_Layer: 5
-  m_Name: InventoryUI
+  m_Name: UnityUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2804,7 +2806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 209ac6ba7fcbab74e8aafa5ab04c3505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonPref: {fileID: 460465974660848683, guid: 666327bce49ca3a499c45434ba7e3542, type: 3}
+  buttonPref: {fileID: 1329406509053351343, guid: 666327bce49ca3a499c45434ba7e3542, type: 3}
   invPanel: {fileID: 466545946}
 --- !u!1 &1746142025
 GameObject:

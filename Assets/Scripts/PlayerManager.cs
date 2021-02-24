@@ -10,12 +10,14 @@ public class PlayerManager : MonoBehaviour
     public GameObject bonusPref;
     public GameObject InventoryUI;
     public Transform playerCam;
+    public GameObject mainCanvas;
+    public InventoryUI invUI;
 
     void Start()
     {
         inventory = new Inventory(initialMaxWeight);
         playerCam = this.gameObject.transform.GetChild(0);
-        //InventoryUI.GetComponent<InventoryUI>();
+        invUI = mainCanvas.transform.GetComponent<InventoryUI>();
     }
 
 
@@ -52,12 +54,16 @@ public class PlayerManager : MonoBehaviour
         {
             inventory.RemoveItem(inventory.GetItemWithName(name));
             GameManager.Instance.DropItem(name, transform.position + transform.forward);
+            invUI.RemoveUI(i);
         }
     }
 
     public bool AddItem(Item i)
     {
         Debug.Log("Added item " + i.GetName());
+        invUI.AddUI(i);
+        Debug.Log("it no no work in the line before this debug L");
+
         return inventory.AddItem(i);
     }
 
