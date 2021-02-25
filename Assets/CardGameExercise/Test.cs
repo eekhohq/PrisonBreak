@@ -12,11 +12,11 @@ public class Test : MonoBehaviour
         Card three = new Card("Three", 3, 3);
         Card four = new Card("Four", 4, 4);
 
-        Deck Gowo = new Deck("Giant OwO");
+        Deck Gowo = new Deck("Giant OwO", 3);
         Gowo.AddToDeck(one);
         Gowo.AddToDeck(two);
         Gowo.AddToDeck(three);
-        //Gowo.AddToDeck(four);
+        Gowo.AddToDeck(four);
 
         Debug.Log(Gowo.GetDeck());
         Gowo.Shuffle();

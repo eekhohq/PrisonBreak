@@ -4,28 +4,50 @@ using UnityEngine;
 
 public class DeckManager : MonoBehaviour
 {
+    public List<Deck> decks = new List<Deck>();
+    public Deck picked;
+
     public bool CreateDeck(int num)
     {
+        //Ask for i
         return true;
     }
 
-    public bool ShuffleAll()
+    public void ShuffleAll()
     {
-        return true;
+        for (int i = 0; i < decks.Count - 1; i++)
+        {
+            int k = Random.Range(0, decks.Count);
+            Deck temp = decks[i];
+            decks[i] = decks[k];
+            decks[k] = temp;
+        }
     }
 
-    public bool GetDeck(int index)
+    public bool GetDeck(Deck deck)
     {
-        return true;
+        if (decks.Contains(deck))
+        {
+            return true;
+        }
+        return false;   
     }
 
-    public bool Pick(int index)
+    public bool Pick(Deck deck)
     {
-        return true;
+        
+        if(decks.Contains(deck))
+        {
+            picked = deck;
+            return true;
+        }
+        return false;
     }
 
-    public bool Lay(int index)
+    public Deck Lay()
     {
-        return true;
+        Deck temp = picked;
+        decks.Remove(picked);
+        return temp;
     }
 }

@@ -8,10 +8,12 @@ public class Deck
     private string name;
     private List<Card> deckCards = new List<Card>();
     private Card picked;
+    private int maxCards;
 
-    public Deck(string name)
+    public Deck(string name, int maxCards)
     {
         this.name = name;
+        this.maxCards = maxCards;
     }
 
     public string GetDeck()
@@ -26,7 +28,11 @@ public class Deck
 
     public void AddToDeck(Card card)
     {
-        deckCards.Add(card);
+        if (deckCards.Count <= maxCards)
+        {
+            deckCards.Add(card);
+        }
+        
         //Was for testing purposes vvv
         if(picked == null)
         {
