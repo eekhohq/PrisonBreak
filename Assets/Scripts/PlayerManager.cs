@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     private Inventory inventory;
+    public string itemName;
     public float initialMaxWeight;
     public GameObject accessPref;
     public GameObject bonusPref;
@@ -43,7 +44,16 @@ public class PlayerManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            DropItem(inventory.GetLastItem().GetName());
+            if (itemName == null)
+            {
+                DropItem(inventory.GetLastItem().GetName());
+            }
+            else
+            {
+                DropItem(itemName);
+                itemName = null;
+            }
+
         }
 
         if (Input.GetKeyDown(KeyCode.F))
