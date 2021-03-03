@@ -1675,6 +1675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9f2e24daf84f0499446984d3bde4fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   initialMaxWeight: 150
   accessPref: {fileID: 742726433563671686, guid: 7a2e269802dbe724eb474404c74c289a, type: 3}
   bonusPref: {fileID: 2255730578615519920, guid: bdf3ddb0833bb4148832efeb39436a21, type: 3}
@@ -2811,6 +2812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonPref: {fileID: 709016052857482930, guid: d0e92631f284e6d49b199885d421f70e, type: 3}
   invPanel: {fileID: 466545946}
+  playerOwningUI: {fileID: 909608689}
 --- !u!1 &1746142025
 GameObject:
   m_ObjectHideFlags: 0
