@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 using SimpleJSON;
 
-public class APIConnection : MonoBehaviour
+public class UITest : MonoBehaviour
 {
-    public List<string> jokes = new List<string>();
+    public GameObject text;
+    public InputField inputField;
+    public string fetched;
+    public string modified = "lolgitfucked";
+
     private IEnumerator GetRequest(string url)
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
@@ -22,21 +27,10 @@ public class APIConnection : MonoBehaviour
                     Debug.LogError("HTTP Error: " + webRequest.error);
                     break;
                 case UnityWebRequest.Result.Success:
-                    //Debug.Log("Received: " + webRequest.downloadHandler.text);
-                    JSONNode JsonObject = JSON.Parse(webRequest.downloadHandler.text);
-                    
-                    
-                    
-                    /*Debug.Log("Joke: " + JsonObject["value"]["joke"].Value);
-                    if (jokes.Contains(JsonObject["value"]["joke"].Value))
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        jokes.Add(JsonObject["value"]["joke"].Value);
-                    }
-                    */
+                    fetched = webRequest.downloadHandler.text;
+                    text.GetComponent<Text>().text = fetched;
+                    string[] allWords = fetched.Split( );
+                    modified = allWords[0];
                     break;
             }
         }
@@ -44,13 +38,15 @@ public class APIConnection : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(GetRequest("http://api.icndb.com/jokes/random"));
+        StartCoroutine(GetRequest("http://numbersapi.com/random"));
     }
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.E))
-        {
 
+    public void ValueChangeCheck(string input)
+    {
+        Debug.Log(input);
+        if(input == modified)
+        {
+            Debug.Log("It CORRECTOwO");
         }
     }
 }
