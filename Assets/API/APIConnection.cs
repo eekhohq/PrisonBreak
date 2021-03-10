@@ -27,7 +27,7 @@ public class APIConnection : MonoBehaviour
                     
                     
                     
-                    /*Debug.Log("Joke: " + JsonObject["value"]["joke"].Value);
+                    Debug.Log("Joke: " + JsonObject["value"]["joke"].Value);
                     if (jokes.Contains(JsonObject["value"]["joke"].Value))
                     {
                         break;
@@ -36,7 +36,6 @@ public class APIConnection : MonoBehaviour
                     {
                         jokes.Add(JsonObject["value"]["joke"].Value);
                     }
-                    */
                     break;
             }
         }
@@ -50,7 +49,7 @@ public class APIConnection : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E))
         {
-
+            StartCoroutine(GetRequest("http://api.icndb.com/jokes/random"));
         }
     }
 }
