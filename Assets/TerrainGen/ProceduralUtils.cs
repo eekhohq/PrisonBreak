@@ -28,6 +28,44 @@ public static class ProceduralUtils
         return texture;
     }
 
+    public static float Map(float value, float valueMin, float valueMax, float resultMin, float resultMax)
+    {
+        if (resultMin == resultMax) return resultMin;
+        if (valueMin == valueMax) return resultMax;
+        return resultMin + (value - valueMin) * (resultMax - resultMin) / (valueMax - valueMin);
+    }
+
+    public static float[,] IslandFilter(float [,] data, float innerRadius, float outerRadius)
+    {
+        Vector2Int center = new Vector2Int(data.GetLength(0) / 2, data.GetLength(1) / 2);
+        for (int y = 0; y < data.GetLength(1); y++)
+        {
+            for (int x = 0; x < data.GetLength(0); x++)
+            {
+                Vector2Int point = new Vector2Int(x, y);
+                float distance = Vector2.Distance(center, point);
+                float multiplier;
+
+                if (data.GetLength(0) < innerRadius)
+                {
+                    multiplier = 1;
+                }
+                else if (data.GetLength(1) > outerRadius)
+                {
+                    multiplier = 0;
+                }
+                else
+                {
+                    multiplier = Map(distance, innerRadius, outerRadius, 1f, 0f);
+                }
+
+                data[x, y] += multiplier;
+            }
+        }
+        
+        return data;
+    }
+
     public static float[,] GenerateTerrainData(int width, int height, float scale, float baseAmplitude, int octaves, float lacunarity, float persistence, Vector3 offset)
     {
         float[,] result = new float[width, height];
@@ -76,4 +114,11 @@ public static class ProceduralUtils
 
         return result;
     }
+
+    /*public static float Map(float value, float valueMin, float valueMax, float resultMin, float resultMax)
+    {
+        if (resultMin == resultMax) return resultMin;
+        if (valueMin == valueMax) return resultMax;
+        return resultMin + (value-valueMin)*(resultMax-resultMin)/(valueMax-valueMin);
+    }*/
 }
