@@ -46,11 +46,11 @@ public static class ProceduralUtils
                 float distance = Vector2.Distance(center, point);
                 float multiplier;
 
-                if (data.GetLength(0) < innerRadius)
+                if (distance < innerRadius)
                 {
                     multiplier = 1;
                 }
-                else if (data.GetLength(1) > outerRadius)
+                else if (distance > outerRadius)
                 {
                     multiplier = 0;
                 }
@@ -59,7 +59,7 @@ public static class ProceduralUtils
                     multiplier = Map(distance, innerRadius, outerRadius, 1f, 0f);
                 }
 
-                data[x, y] += multiplier;
+                data[x, y] *= multiplier;
             }
         }
         
