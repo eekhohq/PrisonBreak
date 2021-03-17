@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public static class ProceduralUtils
 {
@@ -97,15 +98,70 @@ public static class ProceduralUtils
             }
         }
 
+        return result;
+    }
+
+    [Serializable]
+    public struct LayerData
+    {
+        public string name;
+        public float heightTrigger;
+        public float fadeAmount;
+
+        public LayerData(string name, float heightTrigger, float fadeAmount)
+        {
+            this.name = name;
+            this.heightTrigger = heightTrigger;
+            this.fadeAmount = fadeAmount;
+        }
+    }
+
+    public static float[,,] GenerateTextureData(float[,] terrainData, LayerData[] layers)
+    {
+        int width = terrainData.GetLength(0);
+        int height = terrainData.GetLength(1);
+        float[,,] map = new float[width, height, layers.Length];
+
         for (int y = 0; y < height; y++)
         {
             for (int x = 0; x < width; x++)
             {
-                //result[x, y] = Mathf.InverseLerp(minValue, maxValue, result[x, y]*baseAmplitude);
+                float value = terrainData[x, y];
+                for (int l = 0; l < layers.Length; l++)
+                {
+                    float mapValue;
+                    float d = value - layers[l].heightTrigger;
+                    if (l == 0)
+                    {
+                        mapValue = Mathf.Clamp(Map(value, layers[l].heightTrigger, layers[l].heightTrigger + layers[l].fadeAmount, 1f, 0f), 0, 1);
+
+                    }
+                    else
+                    {
+                        if (value > layers[l].heightTrigger)
+                        {
+                            //Fade up
+                            mapValue = Mathf.Clamp(Map(value, layers[l].heightTrigger, layers[l].heightTrigger + layers[l].fadeAmount, 1f, 0f), 0, 1);
+                        }
+                        else if (value < layers[l - 1].heightTrigger + layers[l - 1].fadeAmount)
+                        {
+                            //Fade down
+                            mapValue = Mathf.Clamp(Map(value, layers[l - 1].heightTrigger, layers[l - 1].heightTrigger + layers[l - 1].fadeAmount, 0f, 1f), 0, 1);
+                        }
+                        else
+                        {
+                            //Middle
+                            mapValue = 1;
+                        }
+                    }
+
+                    map[x, y, l] = mapValue;
+
+                }
             }
         }
 
-        return result;
+        return map;
     }
 
     public static float GetPerlinValue(float x, float y, float frequency, float amplitude)
@@ -114,11 +170,4 @@ public static class ProceduralUtils
 
         return result;
     }
-
-    /*public static float Map(float value, float valueMin, float valueMax, float resultMin, float resultMax)
-    {
-        if (resultMin == resultMax) return resultMin;
-        if (valueMin == valueMax) return resultMax;
-        return resultMin + (value-valueMin)*(resultMax-resultMin)/(valueMax-valueMin);
-    }*/
 }
