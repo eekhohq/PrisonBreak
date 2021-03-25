@@ -85,6 +85,22 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public void RemoveItem(string name)
+    {
+        Item i = inventory.GetItemWithName(name);
+        if (i != null)
+        {
+            inventory.RemoveItem(inventory.GetItemWithName(name));
+            GameManager.Instance.DeleteItem(name);
+            invUI.RemoveUI(i);
+        }
+    }
+
+    public List<string> PassThroughRaft()
+    {
+        return inventory.GetRaftNames();
+    }
+
     public bool AddItem(Item i)
     {
         Debug.Log("Added item " + i.GetName());
@@ -99,5 +115,11 @@ public class PlayerManager : MonoBehaviour
     public bool CanIOpenDoor(int doorId)
     {
         return inventory.CanOpenDoor(doorId);
+    }
+
+    public bool CanICraftRaft(int needed)
+    {
+        return inventory.CanCraftRaft(needed);
+
     }
 }

@@ -21,4 +21,10 @@ public class TerrainManager : TerrainConfig
         t.terrainData.alphamapResolution = size.x;
         t.terrainData.SetAlphamaps(0, 0, ProceduralUtils.GenerateTextureData(data, layers.ToArray()));
     }
+
+    /*public void doTheTree()
+    {
+        t.terrainData.SetTreeInstance(index, instance);
+        t.Flush();
+    }*/
 }

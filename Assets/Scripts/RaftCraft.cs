@@ -6,18 +6,15 @@ public class RaftCraft : MonoBehaviour, IInteractable
 {
     public void Action(PlayerManager player)
     {
-        Debug.LogError("stfu");
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("Can craft: " + player.CanICraftRaft(8));
+        if (player.CanICraftRaft(8))
+        {
+            foreach (string s in player.PassThroughRaft())
+            {
+                player.RemoveItem(s);
+            }
+            Application.Quit();
+            //Give raft
+        }
     }
 }

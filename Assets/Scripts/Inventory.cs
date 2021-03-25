@@ -76,6 +76,37 @@ public class Inventory
         return result;
     }
 
+    public bool CanCraftRaft (int itemCount)
+    {
+        int count = 0;
+        int needed = itemCount;
+        foreach (Item item in items)
+        {
+            if (item is RaftItem)
+            {
+                count++;
+            }
+        }
+        if (count == itemCount)
+        {
+            return true;
+        }
+        else return false;
+    }
+
+    public List<string> GetRaftNames()
+    {
+        List <string> names = new List<string>();
+        foreach (Item item in items)
+        {
+            if (item is RaftItem)
+            {
+                names.Add(item.GetName());
+            }
+        }
+        return names;
+    }
+
     public Item GetItemWithName(string name)
     {
         for (int i = 0; i < items.Count; i++)
@@ -100,11 +131,7 @@ public class Inventory
         return items[items.Count - 1];
     }
 
-    /*public bool DropLastItem()
-    {
-        return RemoveItem(items[items.Count - 1]);
-    }
-
+    /*
     public bool DropItem(Item i)
     {
         bool succes = false;

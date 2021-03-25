@@ -28,4 +28,9 @@ public class GameManager : MonoBehaviour
     {
         worldItems[name].Respawn(pos);
     }
+
+    public void DeleteItem(string name)
+    {
+        Destroy(worldItems[name].gameObject);
+    }
 }

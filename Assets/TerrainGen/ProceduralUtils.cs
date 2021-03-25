@@ -67,6 +67,11 @@ public static class ProceduralUtils
         return data;
     }
 
+    public static void SetTreeInstance()
+    {
+        TerrainData.SetTreeInstance(Trees, Tree);
+    }
+
     public static float[,] GenerateTerrainData(int width, int height, float scale, float baseAmplitude, int octaves, float lacunarity, float persistence, Vector3 offset)
     {
         float[,] result = new float[width, height];
