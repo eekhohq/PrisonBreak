@@ -62,6 +62,11 @@ public class PlayerManager : MonoBehaviour
 
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (canAPI)

@@ -46,7 +46,7 @@ public class APIUIHandler : MonoBehaviour
     public void ValueChangeCheck(string input)
     {
         Debug.Log(input);
-        if (input == modified || input == "UMUTxNANDO")
+        if (input == modified || input == "UwUmut x nandOwO")
         {
             door.GetComponent<Door>().ActionWithoutCheck();
         }
