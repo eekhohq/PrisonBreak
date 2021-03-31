@@ -3,7 +3,22 @@ guid: c84e73dadc769874aabcb68f429b2811
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves
+    second: {fileID: 2100000, guid: b44ed1f17eba34941bd4ebaabb2378f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Log Side
+    second: {fileID: 2100000, guid: 642bb6b51bc26d04cb2fa49aabee3e47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Log top
+    second: {fileID: 2100000, guid: 666a909f26e193645a0faa5ae0c8e5cb, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

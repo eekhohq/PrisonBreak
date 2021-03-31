@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1425124899882023066}
   - component: {fileID: 2623580012485752639}
   - component: {fileID: 255618135793058805}
-  - component: {fileID: 215732412777275855}
+  - component: {fileID: 4198013093798385498}
   m_Layer: 0
   m_Name: inground
   m_TagString: Untagged
@@ -60,9 +60,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4006148316881293267, guid: c84e73dadc769874aabcb68f429b2811, type: 3}
-  - {fileID: 6165203519120595517, guid: c84e73dadc769874aabcb68f429b2811, type: 3}
-  - {fileID: 4134107614162171830, guid: c84e73dadc769874aabcb68f429b2811, type: 3}
+  - {fileID: 2100000, guid: b44ed1f17eba34941bd4ebaabb2378f5, type: 2}
+  - {fileID: 2100000, guid: 642bb6b51bc26d04cb2fa49aabee3e47, type: 2}
+  - {fileID: 2100000, guid: 666a909f26e193645a0faa5ae0c8e5cb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &215732412777275855
-BoxCollider:
+--- !u!136 &4198013093798385498
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +94,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0723877, y: 6.1682267, z: 1.0102844}
-  m_Center: {x: 0, y: 2.46, z: -0.5}
+  m_Radius: 0.60226446
+  m_Height: 6.5455704
+  m_Direction: 1
+  m_Center: {x: -0.0049381256, y: 2.3952203, z: -0.5046672}

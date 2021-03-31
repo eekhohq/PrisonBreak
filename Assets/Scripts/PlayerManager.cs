@@ -17,6 +17,7 @@ public class PlayerManager : MonoBehaviour
         inventory = new Inventory(initialMaxWeight);
         playerCam = this.gameObject.transform.GetChild(0);
         invUI = mainCanvas.transform.GetComponent<InventoryUI>();
+        invUI.GetComponent<Canvas>().enabled = false;
     }
 
 
