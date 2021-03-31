@@ -7,8 +7,6 @@ public class PlayerManager : MonoBehaviour
     private Inventory inventory;
     public string itemName;
     public float initialMaxWeight;
-    public GameObject accessPref;
-    public GameObject bonusPref;
     public GameObject InventoryUI;
     public Transform playerCam;
     public GameObject mainCanvas;
