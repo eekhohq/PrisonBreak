@@ -4840,7 +4840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2cb1be55d3244de428fa9ed9de10541e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cb1be55d3244de428fa9ed9de10541e, type: 3}
@@ -11626,7 +11626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1863611342037974997, guid: db415443b1770504d866b9c4491bbeca, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1863611342037974997, guid: db415443b1770504d866b9c4491bbeca, type: 3}
       propertyPath: m_TagString
@@ -12071,6 +12071,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1287012362}
   - component: {fileID: 1287012361}
+  - component: {fileID: 1287012363}
   m_Layer: 0
   m_Name: Track2
   m_TagString: Untagged
@@ -12090,8 +12091,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 180cd91a6487eef4fbda119e9c087a3b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
-  m_Pitch: 1
+  m_Volume: 0.3
+  m_Pitch: 1.1
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -12188,6 +12189,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1287012363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287012360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0bf82480a6884409950f5b967b69e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PanSwitching: 1
+  PanSwitchSpeed: 0.001
+  used: 0
 --- !u!1 &1295220480
 GameObject:
   m_ObjectHideFlags: 0
@@ -34555,8 +34571,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 3.313621}
-  m_Center: {x: 2.9865623e-14, y: 0, z: -1.1568108}
+  m_Size: {x: 1, y: 1, z: 5.979026}
+  m_Center: {x: 1.9337982e-13, y: 0, z: -2.4895134}
 --- !u!23 &1614730842
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35380,8 +35396,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.798221, z: 1.3343506}
-  m_Center: {x: 0, y: -0.10088953, z: -0.1671753}
+  m_Size: {x: 1, y: 0.798221, z: 4.859558}
+  m_Center: {x: 0, y: -0.10088953, z: -1.929779}
 --- !u!23 &1693601908
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -50194,9 +50210,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8d04f8555648cbd4d936ce761bd5b3fc, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
