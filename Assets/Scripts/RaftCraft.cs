@@ -6,7 +6,6 @@ public class RaftCraft : MonoBehaviour, IInteractable
 {
     public GameObject boat;
     public GameObject track2;
-    public GameObject track3;
     public void Action(PlayerManager player)
     {
         Debug.Log("Can craft: " + player.CanICraftRaft(8));
@@ -23,10 +22,9 @@ public class RaftCraft : MonoBehaviour, IInteractable
             }
             else
             {*/
-                player.GetComponent<Camera>().enabled = false;
-                boat.SetActive(true);
-                track2.SetActive(false);
-                track3.SetActive(false);
+            player.GetComponentInChildren<Camera>().enabled = false;
+            boat.SetActive(true);
+            track2.SetActive(false);
             //}
             //Give raft
         }
