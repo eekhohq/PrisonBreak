@@ -6,9 +6,8 @@ public class WaterYeeter : MonoBehaviour
 {
     public float speed;
     private Rigidbody rb;
-    int why = 1;
     private Vector3 direction;
-    private GameObject player;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -29,14 +28,14 @@ public class WaterYeeter : MonoBehaviour
 
     void SetDirection(GameObject player)
     {
-        direction = player.GetComponent<Rigidbody>().velocity;// * -1;
+        direction = player.GetComponent<Rigidbody>().velocity;
         direction.y = 0f;
-        direction = direction.normalized;
+        //direction = direction.normalized;
         Debug.Log("In vel: " + direction);
-        direction = -direction * 2;
+        direction = -direction;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.name == "Player")
         {
@@ -45,10 +44,10 @@ public class WaterYeeter : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
-        Debug.Log("Out vel: " + direction);
+        /*Debug.Log("Out vel: " + direction);
         player.GetComponent<Rigidbody>().Sleep();
-        Debug.Log("Last vel: " + direction);
+        Debug.Log("Last vel: " + direction);*/
     }
 }
