@@ -64,12 +64,19 @@ public class PlayerManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            //Component canvas = invUI.GetComponent<Canvas>().enabled = false;
             if (canAPI)
             {
-                EnableUI();
-                inpUI.SetActive(true);
-                invUI.GetComponent<Canvas>().enabled = false;
+                if (Cursor.lockState == CursorLockMode.Locked)
+                {
+                    inpUI.SetActive(true);
+                    invUI.GetComponent<Canvas>().enabled = false;
+                    EnableUI();
+                }
+                else if(Cursor.lockState == CursorLockMode.None)
+                {
+                    inpUI.SetActive(false);
+                    DisableUI();
+                }
             }
             else
             {
@@ -81,9 +88,8 @@ public class PlayerManager : MonoBehaviour
                 }
                 else if (Cursor.lockState == CursorLockMode.None)
                 {
-                    Cursor.lockState = CursorLockMode.Locked;
                     invUI.GetComponent<Canvas>().enabled = false;
-                    playerCam.gameObject.GetComponent<CameraMovement>().enabled = true;
+                    DisableUI();
                 }
             }
         }
@@ -98,6 +104,12 @@ public class PlayerManager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         playerCam.gameObject.GetComponent<CameraMovement>().enabled = false;
+    }
+
+    private void DisableUI()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        playerCam.gameObject.GetComponent<CameraMovement>().enabled = true;
     }
 
     public void DropItem(string name)
@@ -160,6 +172,11 @@ public class PlayerManager : MonoBehaviour
         else if (collision.gameObject.CompareTag("API"))
         {
             canAPI = true;
+        }
+        else if (collision.gameObject.CompareTag("Finish"))
+        {
+            collision.gameObject.GetComponent<OutsideTrigger>().OutsideTriggerHappenings(gameObject.GetComponent<PlayerMovement>());
+            rb.Sleep();
         }
     }
 

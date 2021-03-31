@@ -22,4 +22,10 @@ public class Door : MonoBehaviour, IInteractable
             rb.AddForce(launchDist);
         }
     }
+
+    public void ActionWithoutCheck()
+    {
+        rb.constraints = RigidbodyConstraints.None;
+        rb.AddForce(launchDist);
+    }
 }
