@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactable
   - Climb
+  - API
   layers:
   - Default
   - TransparentFX

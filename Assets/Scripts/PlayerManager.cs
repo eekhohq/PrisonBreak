@@ -10,7 +10,13 @@ public class PlayerManager : MonoBehaviour
     public GameObject InventoryUI;
     public Transform playerCam;
     public GameObject mainCanvas;
-    public InventoryUI invUI;
+    private InventoryUI invUI;
+    public GameObject inpUI;
+
+    private bool canClimb;
+    private Rigidbody rb;
+    private float upSpeed;
+    private bool canAPI;
 
     void Start()
     {
@@ -18,6 +24,7 @@ public class PlayerManager : MonoBehaviour
         playerCam = this.gameObject.transform.GetChild(0);
         invUI = mainCanvas.transform.GetComponent<InventoryUI>();
         invUI.GetComponent<Canvas>().enabled = false;
+        rb = gameObject.GetComponent<Rigidbody>();
     }
 
 
@@ -58,19 +65,39 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             //Component canvas = invUI.GetComponent<Canvas>().enabled = false;
-            if (Cursor.lockState == CursorLockMode.Locked)
+            if (canAPI)
             {
-                Cursor.lockState = CursorLockMode.None;
-                invUI.GetComponent<Canvas>().enabled = true;
-                playerCam.gameObject.GetComponent<CameraMovement>().enabled = false;
-            }
-            else if (Cursor.lockState == CursorLockMode.None)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
+                EnableUI();
+                inpUI.SetActive(true);
                 invUI.GetComponent<Canvas>().enabled = false;
-                playerCam.gameObject.GetComponent<CameraMovement>().enabled = true;
+            }
+            else
+            {
+                inpUI.SetActive(false);
+                if (Cursor.lockState == CursorLockMode.Locked)
+                {
+                    invUI.GetComponent<Canvas>().enabled = true;
+                    EnableUI();
+                }
+                else if (Cursor.lockState == CursorLockMode.None)
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    invUI.GetComponent<Canvas>().enabled = false;
+                    playerCam.gameObject.GetComponent<CameraMovement>().enabled = true;
+                }
             }
         }
+
+        if (Input.GetKey(KeyCode.W) && canClimb)
+        {
+            rb.AddForce(0, upSpeed, 0);
+        }
+    }
+
+    private void EnableUI()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        playerCam.gameObject.GetComponent<CameraMovement>().enabled = false;
     }
 
     public void DropItem(string name)
@@ -120,5 +147,32 @@ public class PlayerManager : MonoBehaviour
     {
         return inventory.CanCraftRaft(needed);
 
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        Debug.Log("Triggered");
+        if (collision.gameObject.CompareTag("Climb"))
+        {
+            canClimb = true;
+            upSpeed = collision.gameObject.GetComponent<ClimbUp>().climbspeed;
+        }
+        else if (collision.gameObject.CompareTag("API"))
+        {
+            canAPI = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        Debug.Log("Triggered but not");
+        if (collision.gameObject.CompareTag("Climb"))
+        {
+            canClimb = false;
+        }
+        else if (collision.gameObject.CompareTag("API"))
+        {
+            canAPI = false;
+        }
     }
 }

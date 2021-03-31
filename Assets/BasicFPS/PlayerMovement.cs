@@ -7,15 +7,12 @@ public class PlayerMovement : MonoBehaviour
 {
     private Vector2 inputVec;
     public float movementSpeed = 10;
-    //private Rigidbody rb;
 
-    // Start is called before the first frame update
     void Start()
     {
-        //rb = gameObject.GetComponent<Rigidbody>();
+        
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         transform.Translate(inputVec.x * Time.deltaTime * movementSpeed, 0, inputVec.y * Time.deltaTime * movementSpeed);

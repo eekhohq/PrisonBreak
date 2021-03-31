@@ -22,7 +22,6 @@ public class WaterYeeter : MonoBehaviour
         if (player != null)
         {
             Vector3 pos = rb.position;
-            
             rb.position += direction * speed * Time.fixedDeltaTime;
             rb.MovePosition(pos);
         }
@@ -34,17 +33,7 @@ public class WaterYeeter : MonoBehaviour
         direction.y = 0f;
         direction = direction.normalized;
         Debug.Log("In vel: " + direction);
-
-        if (why % 2 == 0)
-        {
-            why++;
-            direction = -direction;
-        }
-        else
-        {
-            why++;
-            //direction = direction;
-        }
+        direction = -direction * 2;
     }
 
     private void OnCollisionEnter(Collision collision)
