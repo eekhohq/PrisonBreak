@@ -5,7 +5,31 @@ using System;
 
 public static class ProceduralUtils
 {
-    public static Texture2D GenerateTexture2D(float[,] data)
+    [Serializable]
+    public struct TreeLayerData
+    {
+        public string name;
+        public int index;
+        public float minHeight;
+        public float maxHeight;
+        public float density;
+
+        public TreeLayerData(string name, int index, float minHeight, float maxHeight, float density)
+        {
+            this.name = name;
+            this.index = index;
+            this.minHeight = minHeight;
+            this.maxHeight = maxHeight;
+            this.density = density;
+        }
+
+        public bool Generate(float height)
+        {
+            return height < maxHeight && height > minHeight && UnityEngine.Random.value < density;
+        }
+    }
+
+        public static Texture2D GenerateTexture2D(float[,] data)
     {
         int width = data.GetLength(0);
         int height = data.GetLength(1);

@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/NewLayer 2.terrainlayer.meta
 guid: 5a3da494118018549bafa0e84b1a9f1f
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 8574412962073106934
+=======
+guid: 11a5cb96bcf6bb04682b96f9ecaf5386
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+>>>>>>> dev:Assets/Materials/Pole.mat.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 
