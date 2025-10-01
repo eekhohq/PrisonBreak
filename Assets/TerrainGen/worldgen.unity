@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb2774bfc8257c47af779ce1cc50cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoUpdate: 1
+  autoUpdate: 0
   size: {x: 512, y: 512}
   scale: 5
   baseAmplitude: 0.249
@@ -154,6 +154,9 @@ MonoBehaviour:
   - name: Stone
     heightTrigger: 1
     fadeAmount: 0.006
+  generateTrees: 1
+  treeScale: 0
+  treeLayers: []
   innerRadius: 157.6
   outerRadius: 242.1
 --- !u!1 &651823376
@@ -654,7 +657,7 @@ Terrain:
   m_GameObject: {fileID: 8468292869227316496}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 552f941932fa04f40bef46428ad4c4a7, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: d242189e27764dd46ab00e1a728d0518, type: 2}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -687,7 +690,7 @@ TerrainCollider:
   m_GameObject: {fileID: 8468292869227316496}
   m_Material: {fileID: 0}
   m_Enabled: 1
-  m_TerrainData: {fileID: 15600000, guid: 552f941932fa04f40bef46428ad4c4a7, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: d242189e27764dd46ab00e1a728d0518, type: 2}
   m_EnableTreeColliders: 1
 --- !u!1 &8468292869227316496
 GameObject:
