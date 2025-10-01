@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb2774bfc8257c47af779ce1cc50cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoUpdate: 0
+  autoUpdate: 1
   size: {x: 512, y: 512}
   scale: 5
   baseAmplitude: 0.249
@@ -155,8 +155,13 @@ MonoBehaviour:
     heightTrigger: 1
     fadeAmount: 0.006
   generateTrees: 1
-  treeScale: 0
-  treeLayers: []
+  treeScale: 1
+  treeLayers:
+  - name: Stone
+    index: 0
+    minHeight: 0.03
+    maxHeight: 0.09
+    density: 0.05
   innerRadius: 157.6
   outerRadius: 242.1
 --- !u!1 &651823376
@@ -563,7 +568,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 893aa13515cdd7148b1a01d57de28e4e, type: 2}
+  - {fileID: 2100000, guid: 2c85a491226cdb64b80db9408edcc505, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
